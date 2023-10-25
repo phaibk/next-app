@@ -36,8 +36,7 @@ const NewIssuePage = () => {
       setError("An error occurred");
     }
   });
-  console.log(register("title"));
-  console.log("error", errors);
+
   return (
     <div className="max-w-xl">
       {error && (
@@ -49,9 +48,7 @@ const NewIssuePage = () => {
         <TextField.Root>
           <TextField.Input placeholder="Title" {...register("title")} />
         </TextField.Root>
-
         <ErrorMessage>{errors.title?.message}</ErrorMessage>
-
         <Controller
           control={control}
           name="description"
@@ -60,9 +57,7 @@ const NewIssuePage = () => {
           )}
         />
         {/* <SimpleMDE placeholder="Description" /> */}
-
         <ErrorMessage>{errors.description?.message}</ErrorMessage>
-
         <Button disabled={isSubmitting}>
           Submit New Issue
           {isSubmitting && <Spinner />}
